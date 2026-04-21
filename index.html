@@ -15,120 +15,189 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto da IA | Wesley Cordeiro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Masterclass IA | Wesley Cordeiro - Instituto da IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #ffcc00; --dark: #0a0a0a; --gray: #1a1a1a; --text: #f4f4f4; --success: #28a745; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--dark); color: var(--text); line-height: 1.6; }
+        :root { --gold: #ffcc00; --gold-dark: #b89600; --dark-bg: #050505; --card-bg: #111111; --text: #ffffff; --text-dim: #a0a0a0; }
         
-        /* Marca D'água Wesley Cordeiro */
-        .watermark { position: fixed; bottom: 100px; right: 20px; opacity: 0.2; font-weight: 900; font-size: 0.8rem; z-index: 99; color: var(--gold); pointer-events: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--dark-bg); color: var(--text); overflow-x: hidden; }
 
-        header { padding: 80px 20px; text-align: center; border-bottom: 3px solid var(--gold); background: linear-gradient(to bottom, #1a1a1a, #050505); }
-        h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -1px; }
-        .highlight { color: var(--gold); }
-        
-        .container { width: 92%; max-width: 700px; margin: 40px auto; padding-bottom: 160px; }
-        
-        .card { background: var(--gray); border-radius: 20px; padding: 30px; border: 1px solid #333; margin-bottom: 30px; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); }
-        
-        h3 { color: var(--gold); text-transform: uppercase; font-size: 1.1rem; margin-bottom: 20px; letter-spacing: 1.5px; display: flex; align-items: center; }
-        h3::before { content: '◈'; margin-right: 10px; }
+        /* Marca D'água Dinâmica */
+        .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 8vw; font-weight: 900; color: rgba(255, 204, 0, 0.03); z-index: -1; pointer-events: none; white-space: nowrap; text-transform: uppercase; }
 
-        .lesson-box { background: rgba(0,0,0,0.3); border-radius: 10px; padding: 15px; margin-top: 15px; border-left: 4px solid var(--gold); }
-        .lesson-title { font-weight: bold; color: var(--gold); display: block; margin-bottom: 5px; }
+        /* Header e Hero */
+        header { padding: 100px 20px 60px; text-align: center; background: radial-gradient(circle at top, #1a1a00 0%, #050505 70%); border-bottom: 1px solid #222; }
+        .logo-badge { background: var(--gold); color: #000; padding: 5px 15px; font-weight: 900; border-radius: 5px; font-size: 0.8rem; font-family: 'Orbitron', sans-serif; }
+        h1 { font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 900; margin: 20px 0; line-height: 1.1; letter-spacing: -2px; }
+        .gold-text { color: var(--gold); text-shadow: 0 0 20px rgba(255, 204, 0, 0.3); }
+        .sub-headline { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin: 0 auto; }
 
-        .method-item { margin-bottom: 15px; display: flex; align-items: flex-start; font-size: 1rem; }
-        .method-item i { color: var(--gold); margin-right: 12px; font-weight: bold; }
+        .container { width: 92%; max-width: 900px; margin: 0 auto; padding-bottom: 150px; }
 
-        .step-pill { background: var(--gold); color: #000; padding: 2px 10px; border-radius: 5px; font-weight: 800; font-size: 0.8rem; margin-right: 8px; }
+        /* Seções Educativas */
+        .section-title { margin: 60px 0 30px; text-align: left; border-left: 5px solid var(--gold); padding-left: 20px; }
+        .section-title h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; text-transform: uppercase; }
+        .section-title p { color: var(--gold); font-weight: bold; font-size: 0.9rem; }
 
-        .bonus-box { border: 2px dashed var(--gold); background: rgba(255, 204, 0, 0.07); text-align: center; position: relative; overflow: hidden; }
-        .urgent { color: #ff4444; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 10px; }
+        /* Cards de Renda */
+        .income-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .income-card { background: var(--card-bg); border: 1px solid #222; border-radius: 20px; padding: 30px; position: relative; transition: 0.4s; }
+        .income-card:hover { border-color: var(--gold); transform: translateY(-5px); background: #161616; }
+        .income-number { position: absolute; top: 20px; right: 30px; font-size: 3rem; font-weight: 900; color: rgba(255,204,0,0.1); }
+        .income-card h4 { font-size: 1.3rem; margin-bottom: 15px; color: var(--gold); }
+        .income-card p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 15px; }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #222; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; border: 1px solid #333; }
 
-        .cta-box { position: fixed; bottom: 0; left: 0; width: 100%; padding: 25px; background: rgba(10, 10, 10, 0.98); z-index: 1000; border-top: 2px solid #222; }
-        .cta-button { display: block; width: 100%; max-width: 550px; margin: 0 auto; padding: 22px; background: var(--gold); color: #000; text-align: center; text-decoration: none; font-size: 1.3rem; font-weight: 900; border-radius: 15px; box-shadow: 0 10px 30px rgba(255, 204, 0, 0.4); transition: 0.3s; text-transform: uppercase; }
-        .cta-button:hover { transform: scale(1.02); background: #fff; }
+        /* Box de Ferramentas */
+        .tool-box { background: linear-gradient(135deg, #111 0%, #000 100%); border: 1px solid var(--gold); border-radius: 15px; padding: 25px; margin-top: 20px; }
+        .tool-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222; }
+        .tool-name { font-weight: bold; color: #fff; }
+        .tool-use { color: var(--gold); font-size: 0.85rem; }
 
-        .story { font-style: italic; color: #ccc; border-left: 3px solid var(--gold); padding: 10px 20px; background: rgba(255,255,255,0.03); border-radius: 0 10px 10px 0; margin-bottom: 15px; }
-        
-        footer { text-align: center; padding: 60px 20px; color: #555; font-size: 0.8rem; border-top: 1px solid #222; }
-        
-        ul { list-style: none; }
-        li { margin-bottom: 10px; }
+        /* Depoimentos */
+        .testimonial-box { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; }
+        .testimonial { min-width: 280px; background: #1a1a1a; padding: 20px; border-radius: 15px; border-bottom: 3px solid var(--gold); }
+        .testimonial p { font-style: italic; font-size: 0.9rem; }
+        .testimonial span { display: block; margin-top: 10px; font-weight: bold; color: var(--gold); }
+
+        /* FAQ */
+        .faq-item { margin-bottom: 15px; background: #0a0a0a; padding: 15px; border-radius: 10px; cursor: pointer; border: 1px solid #111; }
+        .faq-item:hover { border-color: #333; }
+
+        /* CTA Fixo */
+        .cta-container { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(5,5,5,0.95); padding: 20px; border-top: 1px solid #222; backdrop-filter: blur(10px); z-index: 1000; text-align: center; }
+        .cta-btn { display: inline-block; width: 100%; max-width: 600px; background: var(--gold); color: #000; padding: 20px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 1.2rem; text-transform: uppercase; box-shadow: 0 10px 30px rgba(255,204,0,0.3); transition: 0.3s; }
+        .cta-btn:hover { background: #fff; transform: scale(1.02); }
+
+        footer { text-align: center; padding: 100px 20px; color: #444; border-top: 1px solid #111; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<div class="watermark">WESLEY CORDEIRO | INSTITUTO DA IA</div>
+<div class="watermark">WESLEY CORDEIRO</div>
 
 <header>
-    <span style="background: var(--gold); color: #000; padding: 6px 16px; font-weight: 900; border-radius: 30px; font-size: 0.75rem; text-transform: uppercase;">Acesso Vitalício Liberado</span>
-    <h1 style="margin-top:20px;">O Poder da <span class="highlight">IA</span> no seu Bolso</h1>
-    <p style="font-size: 1.1rem; opacity: 0.8;">O guia definitivo de Wesley Cordeiro para transformar tecnologia em dinheiro vivo.</p>
+    <span class="logo-badge">INSTITUTO DA IA</span>
+    <h1>O MAPA DA <span class="gold-text">LIBERDADE</span> FINANCEIRA COM IA</h1>
+    <p class="sub-headline">Aprenda a usar as ferramentas que estão criando uma nova geração de milionários digitais. Sem enrolação, direto ao lucro.</p>
 </header>
 
 <div class="container">
-    
-    <div class="card">
-        <h3>Aula 01: Onde está o dinheiro?</h3>
-        <p>Você não precisa ser gênio. Precisa resolver problemas. Existem 3 mercados explodindo agora:</p>
-        <div class="lesson-box">
-            <span class="lesson-title">1. Social Media para Negócios Locais</span>
-            <p>Padarias, oficinas e lojas de agro não sabem postar. Você usa a IA para criar o calendário de 30 dias em 5 minutos.</p>
+
+    <div class="section-title">
+        <p>CONHECIMENTO APLICADO</p>
+        <h2>5 Formas de Lucrar Agora</h2>
+    </div>
+
+    <div class="income-grid">
+        <div class="income-card">
+            <div class="income-number">01</div>
+            <h4>Gestão de Tráfego Orgânico com IA</h4>
+            <p>Crie scripts de Reels e TikTok que viralizam usando algoritmos de retenção. Você vende a estratégia para lojas locais.</p>
+            <div class="tag-list">
+                <span class="tag">R$ 500 - R$ 2.000 / cliente</span>
+                <span class="tag">Baixo Esforço</span>
+            </div>
         </div>
-        <div class="lesson-box">
-            <span class="lesson-title">2. Criação de E-books (PLR)</span>
-            <p>Crie produtos digitais do zero e venda no automático enquanto você dorme ou trabalha.</p>
+
+        <div class="income-card">
+            <div class="income-number">02</div>
+            <h4>Criação de Infoprodutos (PLR 2.0)</h4>
+            <p>Use a IA para escrever, diagramar e criar a página de vendas de um produto digital. Venda no automático 24h por dia.</p>
+            <div class="tag-list">
+                <span class="tag">Escala Infinita</span>
+                <span class="tag">100% Automático</span>
+            </div>
+        </div>
+
+        <div class="income-card">
+            <div class="income-number">03</div>
+            <h4>Consultoria em Automação Comercial</h4>
+            <p>Instale Chatbots inteligentes que vendem sozinhos no WhatsApp de clínicas, oficinas e lojas. O mercado implora por isso.</p>
+            <div class="tag-list">
+                <span class="tag">Ticket Alto</span>
+                <span class="tag">Recorrência Mensal</span>
+            </div>
+        </div>
+
+        <div class="income-card">
+            <div class="income-number">04</div>
+            <h4>Freelancer Internacional (Dólar)</h4>
+            <p>Aprenda a configurar perfis no Upwork e Workana para prestar serviços de tradução e dados para empresas do exterior.</p>
+            <div class="tag-list">
+                <span class="tag">Ganhe em Dólar (5x)</span>
+                <span class="tag">Home Office</span>
+            </div>
+        </div>
+
+        <div class="income-card">
+            <div class="income-number">05</div>
+            <h4>Artes Profissionais e Logotipos</h4>
+            <p>Transforme descrições simples em imagens cinematográficas para capas de livros, marcas e anúncios de alta performance.</p>
+            <div class="tag-list">
+                <span class="tag">R$ 150 / logo</span>
+                <span class="tag">Feito em 2 min</span>
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <h3>Aula 02: O Plano de Execução</h3>
-        <ul>
-            <li class="method-item"><span class="step-pill">Passo 1</span> <strong>Mineração:</strong> Use o ChatGPT para encontrar um problema que as pessoas pagam para resolver.</li>
-            <li class="method-item"><span class="step-pill">Passo 2</span> <strong>Criação:</strong> Use ferramentas de imagem (como Midjourney ou Leonardo) para criar artes profissionais.</li>
-            <li class="method-item"><span class="step-pill">Passo 3</span> <strong>Escala:</strong> Publique em plataformas como 99Freelas, VintePila e Workana.</li>
-        </ul>
+    <div class="section-title">
+        <p>O ARSENAL</p>
+        <h2>O que você vai dominar</h2>
     </div>
 
-    <div class="card">
-        <h3>Resultados da Comunidade</h3>
-        <div class="story">"Wesley, segui sua dica de criar roteiros para lojas de carro aqui da minha cidade. Fechei meu primeiro contrato de R$ 1.200 mensal!" - <strong>João P.</strong></div>
-        <div class="story">"As ferramentas de IA que você ensinou me poupam 4 horas de trabalho por dia na obra e ainda ganho extra com edição à noite." - <strong>Ricardo S.</strong></div>
-        <p style="text-align: center; color: var(--gold); font-weight: bold; margin-top: 10px;">+ de 5.000 alunos transformados</p>
+    <div class="tool-box">
+        <div class="tool-item"><span class="tool-name">ChatGPT 4.0 / Claude 3</span> <span class="tool-use">Cérebro Estratégico</span></div>
+        <div class="tool-item"><span class="tool-name">Midjourney / Leonardo IA</span> <span class="tool-use">Design de Elite</span></div>
+        <div class="tool-item"><span class="tool-name">ElevenLabs</span> <span class="tool-use">Vozes Humanizadas</span></div>
+        <div class="tool-item"><span class="tool-name">CapCut + IA</span> <span class="tool-use">Edição Viral</span></div>
     </div>
 
-    <div class="card" style="border: 1px solid var(--gold);">
-        <h3>O Que Você Vai Aprender no Curso</h3>
-        <div class="method-item"><i>✓</i> <strong>Módulo Elite:</strong> Como dominar o ChatGPT para negócios reais.</div>
-        <div class="method-item"><i>✓</i> <strong>Edição Viral:</strong> Crie vídeos que vendem usando IAs de vídeo.</div>
-        <div class="method-item"><i>✓</i> <strong>Venda em Dólar:</strong> Como configurar seu perfil para ganhar 5x mais.</div>
-        <div class="method-item"><i>✓</i> <strong>Minha Estratégia Pessoal:</strong> O que eu faço no dia a dia.</div>
+    <div class="section-title">
+        <p>WESLEY CORDEIRO</p>
+        <h2>A Mentalidade de Investidor</h2>
+    </div>
+    <div class="income-card" style="background: rgba(255, 204, 0, 0.05); border-color: var(--gold);">
+        <p style="color: #fff; font-size: 1.1rem; line-height: 1.8;">
+            "Trabalhar duro é importante, mas trabalhar de forma inteligente é o que te faz ser o dono da terra. Eu uso o dinheiro da IA para construir patrimônio real. O digital é a semente, o seu futuro é a colheita."
+        </p>
     </div>
 
-    <div class="card bonus-box">
-        <span class="urgent">Vagas Limitadas com este bônus</span>
-        <h3>🎁 BÔNUS EXCLUSIVO</h3>
-        <p><strong>Mentoria Anti-Crise:</strong> Como eu organizo meu dinheiro para nunca mais ficar 'liso' e investir em patrimônio real (terras e imóveis).</p>
-        <p style="margin-top:10px; font-size: 0.9rem; color: var(--gold);">Valor Individual: <strike>R$ 197,00</strike> | <strong>Hoje: GRÁTIS</strong></p>
+    <div class="testimonial-box">
+        <div class="testimonial">
+            <p>"Segui o método de consultoria local e fechei 3 clientes em uma semana. Wesley salvou meu mês!"</p>
+            <span>- Marcos Andrade</span>
+        </div>
+        <div class="testimonial">
+            <p>"Nunca pensei que ganharia em dólar trabalhando do meu sofá no interior. Surreal!"</p>
+            <span>- Ana Beatriz</span>
+        </div>
+        <div class="testimonial">
+            <p>"Já ganhei R$ 235 com tuas dicas Wesley, o curso é completo demais!"</p>
+            <span>- Seguidora do Insta</span>
+        </div>
     </div>
+
+    <div class="section-title">
+        <p>DÚVIDAS FREQUENTES</p>
+        <h2>Perguntas dos Alunos</h2>
+    </div>
+    <div class="faq-item"><strong>Preciso de computador?</strong> Não, 90% das ferramentas podem ser usadas pelo celular.</div>
+    <div class="faq-item"><strong>Não entendo de tecnologia, consigo?</strong> Sim, o curso é do zero ao avançado, passo a passo.</div>
+    <div class="faq-item"><strong>Em quanto tempo tenho retorno?</strong> Depende da sua execução, mas temos alunos faturando na primeira semana.</div>
 
     <footer>
-        <p><strong>INSTITUTO DA IA - POR WESLEY CORDEIRO</strong></p>
-        <p>CNPJ & Cópia Registrada © 2026</p>
-        <p style="margin-top:20px; opacity: 0.5;">Aviso: Este produto não garante resultados sem esforço. O sucesso depende da aplicação constante dos métodos ensinados pelo Instituto.</p>
-        <div style="margin-top:20px;">
-            <a href="#" style="color: #888; text-decoration: none; margin: 0 10px;">Privacidade</a>
-            <a href="#" style="color: #888; text-decoration: none; margin: 0 10px;">Contato</a>
-        </div>
+        <p><strong>WESLEY CORDEIRO - INSTITUTO DA IA © 2026</strong></p>
+        <p style="margin-top:10px;">Todos os direitos reservados. CNPJ: 00.000.000/0001-00</p>
+        <p style="margin-top:20px; opacity: 0.4;">Este site não garante ganhos fixos. O mercado digital exige estudo e aplicação prática. Os resultados apresentados são de alunos aplicados.</p>
     </footer>
+
 </div>
 
-<div class="cta-box">
-    <a href="https://pay.kiwify.com.br/iC86MS7" class="cta-button">QUERO MUDAR DE VIDA AGORA 🚀</a>
+<div class="cta-container">
+    <a href="https://pay.kiwify.com.br/iC86MS7" class="cta-btn">QUERO MEU ACESSO VITALÍCIO AGORA 🚀</a>
 </div>
 
 </body>
