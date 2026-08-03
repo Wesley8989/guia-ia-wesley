@@ -9,11 +9,11 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
     }
 
     body {
-      background-color: #0f0f15;
+      background: radial-gradient(circle at top, #1a1a2e 0%, #080811 100%);
       color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -24,144 +24,181 @@
     }
 
     h1 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #fe2c55; /* Cor estilo TikTok */
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #fe2c55, #25f4ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       text-align: center;
+      text-shadow: 0 4px 20px rgba(254, 44, 85, 0.3);
     }
 
+    /* Container para colocar os candidatos LADO A LADO */
     .container {
       display: flex;
-      flex-direction: column;
+      flex-direction: row; /* Coloca lado a lado */
+      justify-content: center;
+      align-items: stretch;
       gap: 20px;
       width: 100%;
-      max-width: 500px;
+      max-width: 1100px;
+      flex-wrap: wrap; /* Ajusta automaticamente em telas de celular */
     }
 
+    /* Cards Profissionais com Efeito Glassmorphism */
     .candidate-card {
-      background: #1e1e28;
-      border-radius: 16px;
-      padding: 20px;
+      background: rgba(30, 30, 45, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 24px 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      border: 2px solid transparent;
-      transition: transform 0.1s ease;
+      flex: 1;
+      min-width: 260px;
+      max-width: 320px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Moldura QUADRADA e MAIOR para a foto */
+    .candidate-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Moldura da Foto */
     .candidate-photo-container {
       width: 100%;
-      max-width: 220px; /* Largura maior */
-      height: 180px;    /* Altura maior (formato retangular/quadrado) */
-      border-radius: 12px; /* Cantos levemente arredondados */
+      height: 200px;
+      border-radius: 14px;
       overflow: hidden;
-      margin-bottom: 15px;
-      border: 3px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 16px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #2a2a35;
+      background-color: #12121a;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
     }
 
     .candidate-photo {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ajusta a imagem sem esticar */
+      object-fit: cover;
       display: block;
     }
 
-    /* Cores das bordas da foto conforme o candidato */
-    .card-bolsonaro .candidate-photo-container { border-color: #2563eb; } /* Azul */
-    .card-renan .candidate-photo-container { border-color: #25f4ee; }     /* Ciano */
-    .card-lula .candidate-photo-container { border-color: #dc2626; }      /* Vermelho */
+    /* Cores personalizadas por candidato (Bordas e Brilhos Neon) */
+    .card-bolsonaro {
+      border-color: rgba(37, 99, 235, 0.5);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.2);
+    }
+    .card-bolsonaro .candidate-photo-container { border-color: #2563eb; }
 
-    /* Cores do card */
-    .card-bolsonaro { border-color: #2563eb; } 
-    .card-renan { border-color: #25f4ee; }     
-    .card-lula { border-color: #dc2626; }      
+    .card-renan {
+      border-color: rgba(37, 244, 238, 0.5);
+      box-shadow: 0 8px 30px rgba(37, 244, 238, 0.2);
+    }
+    .card-renan .candidate-photo-container { border-color: #25f4ee; }
+
+    .card-lula {
+      border-color: rgba(220, 38, 38, 0.5);
+      box-shadow: 0 8px 30px rgba(220, 38, 38, 0.2);
+    }
+    .card-lula .candidate-photo-container { border-color: #dc2626; }
 
     .candidate-header {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .candidate-name {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
 
     .gift-info {
-      font-size: 0.9rem;
-      color: #a0a0ab;
-      margin-top: 4px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 6px;
     }
 
     .gift-badge {
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.1);
-      display: inline-block;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       margin-top: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .score-display {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin: 10px 0;
+      font-size: 4rem;
+      font-weight: 900;
+      margin: 12px 0;
       font-variant-numeric: tabular-nums;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     .controls {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       width: 100%;
+      margin-top: auto;
     }
 
     .btn {
       flex: 1;
-      padding: 12px;
-      font-size: 1.2rem;
-      font-weight: bold;
+      padding: 14px;
+      font-size: 1.25rem;
+      font-weight: 800;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       user-select: none;
-      transition: opacity 0.2s, transform 0.1s;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .btn:active {
-      transform: scale(0.96);
+      transform: scale(0.94);
     }
 
     .btn-add {
-      background-color: #22c55e;
+      background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
       color: #ffffff;
     }
 
     .btn-sub {
-      background-color: #ef4444;
+      background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
       color: #ffffff;
     }
 
     .btn-reset {
-      margin-top: 25px;
-      background: transparent;
-      border: 1px solid #4b5563;
-      color: #9ca3af;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.85rem;
+      margin-top: 35px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #cbd5e1;
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     .btn-reset:hover {
-      background: #374151;
-      color: #fff;
+      background: rgba(239, 68, 68, 0.2);
+      border-color: #ef4444;
+      color: #ffffff;
     }
   </style>
 </head>
@@ -178,7 +215,7 @@
       </div>
       <div class="candidate-header">
         <div class="candidate-name">Flávio Bolsonaro</div>
-        <div class="gift-info">Envie: <span class="gift-badge" style="color: #ffffff;">🤍 Rosa Branca</span></div>
+        <div class="gift-info">Envie: <span class="gift-badge" style="color: #ffffff;">💮 Rosa Branca</span></div>
       </div>
       <div class="score-display" id="score-bolsonaro">0</div>
       <div class="controls">
@@ -194,7 +231,7 @@
       </div>
       <div class="candidate-header">
         <div class="candidate-name">Renan Santos</div>
-        <div class="gift-info">Envie: <span class="gift-badge" style="color: #25f4ee;">🎁 Logo TikTok</span></div>
+        <div class="gift-info">Envie: <span class="gift-badge" style="color: #25f4ee;">🎁 Presente TikTok</span></div>
       </div>
       <div class="score-display" id="score-renan">0</div>
       <div class="controls">
@@ -224,27 +261,22 @@
   <button class="btn-reset" onclick="resetAll()">Zerar Placar</button>
 
   <script>
-    // Objeto para guardar a contagem dos votos
     const scores = {
       bolsonaro: 0,
       renan: 0,
       lula: 0
     };
 
-    // Função para alterar os votos
     function changeScore(candidate, amount) {
       scores[candidate] += amount;
       
-      // Impede que o número de votos fique negativo
       if (scores[candidate] < 0) {
         scores[candidate] = 0;
       }
 
-      // Atualiza o texto na tela
       document.getElementById(`score-${candidate}`).innerText = scores[candidate];
     }
 
-    // Função para zerar tudo se necessário
     function resetAll() {
       if (confirm("Deseja realmente zerar todos os votos?")) {
         for (let key in scores) {
