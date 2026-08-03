@@ -1,225 +1,222 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto da IA | Wesley Cordeiro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #ffcc00;
-            --dark-bg: #0a0a0a;
-            --card-bg: #151515;
-            --text-color: #ffffff;
-            --accent-blue: #00d4ff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placar da Live - TikTok</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--dark-bg); color: var(--text-color); line-height: 1.6; overflow-x: hidden; }
+    body {
+      background-color: #0f0f15;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
 
-        /* Barra de Alerta Topo */
-        .top-bar { background: var(--gold); color: #000; text-align: center; padding: 10px; font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fe2c55; /* Cor estilo TikTok */
+      text-align: center;
+    }
 
-        /* Header / Hero */
-        header {
-            padding: 80px 20px;
-            text-align: center;
-            background: radial-gradient(circle at center, #1a1a00 0%, #0a0a0a 100%);
-            border-bottom: 2px solid rgba(255, 204, 0, 0.3);
-        }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 500px;
+    }
 
-        .pre-title { color: var(--gold); font-weight: 800; letter-spacing: 2px; margin-bottom: 15px; display: block; }
-        
-        h1 {
-            font-family: 'Orbitron';
-            font-size: clamp(2.2rem, 8vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
+    .candidate-card {
+      background: #1e1e28;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      border: 2px solid transparent;
+      transition: transform 0.1s ease;
+    }
 
-        .highlight { color: var(--gold); text-shadow: 0 0 20px rgba(255, 204, 0, 0.4); }
+    /* Cores de destaque para cada candidato */
+    .card-bolsonaro { border-color: #2563eb; } /* Azul / Rosa Branca */
+    .card-renan { border-color: #25f4ee; }     /* Ciano / Presente TikTok */
+    .card-lula { border-color: #dc2626; }      /* Vermelho / Rosa Vermelha */
 
-        .sub-headline {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            max-width: 800px;
-            margin: 0 auto 30px;
-            color: #ccc;
-            font-weight: 300;
-        }
+    .candidate-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
 
-        /* Container Principal */
-        .container { width: 92%; max-width: 1100px; margin: auto; padding-bottom: 120px; }
+    .candidate-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
 
-        /* Seção de Conteúdo (Aulas) */
-        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Orbitron'; color: var(--gold); font-size: 1.8rem; }
+    .gift-info {
+      font-size: 0.9rem;
+      color: #a0a0ab;
+      margin-top: 4px;
+    }
 
-        .grid-lessons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    .gift-badge {
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      display: inline-block;
+      margin-top: 4px;
+    }
 
-        .card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid #333;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
+    .score-display {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 10px 0;
+      font-variant-numeric: tabular-nums;
+    }
 
-        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+    .controls {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+    }
 
-        .card h2 { font-family: 'Orbitron'; font-size: 1.3rem; margin-bottom: 20px; color: var(--gold); }
+    .btn {
+      flex: 1;
+      padding: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
 
-        .lesson-step {
-            background: rgba(0,0,0,0.4);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--gold);
-        }
+    .btn:active {
+      transform: scale(0.96);
+    }
 
-        .lesson-step strong { color: var(--gold); display: block; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; }
+    .btn-add {
+      background-color: #22c55e;
+      color: #ffffff;
+    }
 
-        /* Diferenciais - "O que você não precisa" */
-        .no-need {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 40px;
-        }
+    .btn-sub {
+      background-color: #ef4444;
+      color: #ffffff;
+    }
 
-        .no-item { background: #1a0000; padding: 15px 25px; border-radius: 50px; border: 1px solid #400; color: #ff6666; font-weight: 700; }
+    .btn-reset {
+      margin-top: 25px;
+      background: transparent;
+      border: 1px solid #4b5563;
+      color: #9ca3af;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
 
-        /* O que você vai receber */
-        .bonus-box {
-            background: linear-gradient(135deg, #111 0%, #222 100%);
-            padding: 40px;
-            border-radius: 25px;
-            border: 2px dashed var(--gold);
-            margin: 60px 0;
-        }
-
-        .bonus-item { display: flex; align-items: center; margin-bottom: 15px; font-size: 1.1rem; }
-        .bonus-item::before { content: '✅'; margin-right: 15px; }
-
-        /* Rodapé de Compra */
-        .cta-bar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            text-align: center;
-            border-top: 2px solid var(--gold);
-            z-index: 999;
-        }
-
-        .cta-btn {
-            background: var(--gold);
-            color: #000;
-            padding: 18px 45px;
-            font-weight: 900;
-            text-decoration: none;
-            border-radius: 12px;
-            display: inline-block;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 30px rgba(255, 204, 0, 0.3);
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .cta-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
-
-        .price-tag { display: block; font-size: 0.8rem; margin-top: 5px; color: #999; }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .card { padding: 25px; }
-        }
-    </style>
+    .btn-reset:hover {
+      background: #374151;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="top-bar">🔥 Vagas promocionais liberadas por tempo limitado</div>
+  <h1> Votação na Live </h1>
 
-    <header>
-        <span class="pre-title">INSTITUTO DA IA APRESENTA:</span>
-        <h1>MÉTODO <br><span class="highlight">IA LUCRATIVA</span></h1>
-        <p class="sub-headline">O plano prático para você dominar a Inteligência Artificial e colocar seus primeiros <b>R$ 100 a R$ 500 no bolso</b> usando apenas o seu celular.</p>
-        
-        <div class="no-need">
-            <div class="no-item">❌ SEM APARECER</div>
-            <div class="no-item">❌ SEM COMPUTADOR</div>
-            <div class="no-item">❌ SEM EXPERIÊNCIA</div>
-        </div>
-    </header>
+  <div class="container">
 
-    <div class="container">
-
-        <h2 class="section-title">O QUE VOCÊ VAI APRENDER (PASSO A PASSO)</h2>
-
-        <div class="grid-lessons">
-            <div class="card">
-                <h2>01. Social Media 2.0</h2>
-                <div class="lesson-step">
-                    <strong>A Estratégia:</strong>
-                    Aprenda a criar 30 dias de conteúdo em 15 minutos usando o ChatGPT e o Canva (criação em lote).
-                </div>
-                <div class="lesson-step">
-                    <strong>Como Lucrar:</strong>
-                    Ofereça esse serviço para lojas locais, barbearias ou dentistas por R$ 300 a R$ 600 mensais.
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>02. Fábrica de E-books</h2>
-                <div class="lesson-step">
-                    <strong>A Estratégia:</strong>
-                    Use a IA para estruturar sumários, capítulos e textos de livros digitais sobre qualquer assunto.
-                </div>
-                <div class="lesson-step">
-                    <strong>Como Lucrar:</strong>
-                    Hospede na Kiwify e venda no automático. É a sua renda passiva trabalhando 24h por dia.
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>03. Renda com Afiliados</h2>
-                <div class="lesson-step">
-                    <strong>A Estratégia:</strong>
-                    Escolha produtos vencedores na Shopee/Amazon e use a IA para criar scripts de venda "virais".
-                </div>
-                <div class="lesson-step">
-                    <strong>Como Lucrar:</strong>
-                    Receba comissões diretas na sua conta por cada venda realizada através do seu link.
-                </div>
-            </div>
-        </div>
-
-        <div class="bonus-box">
-            <h2 style="color:var(--gold); font-family:'Orbitron'; margin-bottom:20px;">VOCÊ TAMBÉM RECEBE:</h2>
-            <div class="bonus-item"><b>Pack com 200 Prompts Secretos:</b> Comandos prontos para copiar e colar.</div>
-            <div class="bonus-item"><b>Plano de Ação de 7 Dias:</b> O que fazer do dia 1 ao dia 7 para ver o dinheiro cair.</div>
-            <div class="bonus-item"><b>Guia de Ferramentas Gratuitas:</b> Lucro máximo sem gastar com assinaturas caras.</div>
-            <div class="bonus-item"><b>Acesso Vitalício:</b> Assista e revise quando quiser.</div>
-        </div>
-
-        <div style="text-align:center; padding:40px; border: 1px solid #333; border-radius: 20px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" width="80" style="filter: invert(1); margin-bottom: 20px;">
-            <h3 style="color:var(--gold);">RISCO ZERO - 7 DIAS DE GARANTIA</h3>
-            <p style="color:#999; max-width:600px; margin: 10px auto;">Se você entrar, aplicar e achar que não é para você, eu devolvo 100% do seu dinheiro. Sem perguntas.</p>
-        </div>
-
+    <!-- Flávio Bolsonaro -->
+    <div class="candidate-card card-bolsonaro">
+      <div class="candidate-header">
+        <div class="candidate-name">Flávio Bolsonaro</div>
+        <div class="gift-info">Envie: <span class="gift-badge" style="color: #ffffff;">🤍 Rosa Branca</span></div>
+      </div>
+      <div class="score-display" id="score-bolsonaro">0</div>
+      <div class="controls">
+        <button class="btn btn-sub" onclick="changeScore('bolsonaro', -1)">-1</button>
+        <button class="btn btn-add" onclick="changeScore('bolsonaro', 1)">+1</button>
+      </div>
     </div>
 
-    <div class="cta-bar">
-        <a href="https://pay.kiwify.com.br/iC86MS7" class="cta-btn">
-            QUERO COMEÇAR AGORA 🚀
-        </a>
-        <span class="price-tag">Acesso imediato ao Método Completo + Bônus</span>
+    <!-- Renan Santos -->
+    <div class="candidate-card card-renan">
+      <div class="candidate-header">
+        <div class="candidate-name">Renan Santos</div>
+        <div class="gift-info">Envie: <span class="gift-badge" style="color: #25f4ee;">🎁 Logo TikTok</span></div>
+      </div>
+      <div class="score-display" id="score-renan">0</div>
+      <div class="controls">
+        <button class="btn btn-sub" onclick="changeScore('renan', -1)">-1</button>
+        <button class="btn btn-add" onclick="changeScore('renan', 1)">+1</button>
+      </div>
     </div>
 
+    <!-- Lula -->
+    <div class="candidate-card card-lula">
+      <div class="candidate-header">
+        <div class="candidate-name">Lula</div>
+        <div class="gift-info">Envie: <span class="gift-badge" style="color: #f87171;">🌹 Rosa Vermelha</span></div>
+      </div>
+      <div class="score-display" id="score-lula">0</div>
+      <div class="controls">
+        <button class="btn btn-sub" onclick="changeScore('lula', -1)">-1</button>
+        <button class="btn btn-add" onclick="changeScore('lula', 1)">+1</button>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="btn-reset" onclick="resetAll()">Zerar Placar</button>
+
+  <script>
+    // Objeto para guardar a contagem dos votos
+    const scores = {
+      bolsonaro: 0,
+      renan: 0,
+      lula: 0
+    };
+
+    // Função para alterar os votos
+    function changeScore(candidate, amount) {
+      scores[candidate] += amount;
+     
+      // Impede que o número de votos fique negativo
+      if (scores[candidate] < 0) {
+        scores[candidate] = 0;
+      }
+
+      // Atualiza o texto na tela
+      document.getElementById(`score-${candidate}`).innerText = scores[candidate];
+    }
+
+    // Função para zerar tudo se necessário
+    function resetAll() {
+      if (confirm("Deseja realmente zerar todos os votos?")) {
+        for (let key in scores) {
+          scores[key] = 0;
+          document.getElementById(`score-${key}`).innerText = 0;
+        }
+      }
+    }
+  </script>
 </body>
 </html>
