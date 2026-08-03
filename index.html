@@ -52,6 +52,16 @@
       transition: transform 0.1s ease;
     }
 
+    /* Estilo para as fotos dos políticos */
+    .candidate-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
     /* Cores de destaque para cada candidato */
     .card-bolsonaro { border-color: #2563eb; } /* Azul / Rosa Branca */
     .card-renan { border-color: #25f4ee; }     /* Ciano / Presente TikTok */
@@ -146,6 +156,7 @@
 
     <!-- Flávio Bolsonaro -->
     <div class="candidate-card card-bolsonaro">
+      <img src="http://googleusercontent.com/image_collection/image_retrieval/15404239444405205904_0" alt="Flávio Bolsonaro" class="candidate-photo">
       <div class="candidate-header">
         <div class="candidate-name">Flávio Bolsonaro</div>
         <div class="gift-info">Envie: <span class="gift-badge" style="color: #ffffff;">🤍 Rosa Branca</span></div>
@@ -159,6 +170,7 @@
 
     <!-- Renan Santos -->
     <div class="candidate-card card-renan">
+      <img src="http://googleusercontent.com/image_collection/image_retrieval/4024802090103572799_0" alt="Renan Santos" class="candidate-photo">
       <div class="candidate-header">
         <div class="candidate-name">Renan Santos</div>
         <div class="gift-info">Envie: <span class="gift-badge" style="color: #25f4ee;">🎁 Logo TikTok</span></div>
@@ -172,6 +184,7 @@
 
     <!-- Lula -->
     <div class="candidate-card card-lula">
+      <img src="http://googleusercontent.com/image_collection/image_retrieval/13031029483505813366_0" alt="Lula" class="candidate-photo">
       <div class="candidate-header">
         <div class="candidate-name">Lula</div>
         <div class="gift-info">Envie: <span class="gift-badge" style="color: #f87171;">🌹 Rosa Vermelha</span></div>
@@ -198,7 +211,7 @@
     // Função para alterar os votos
     function changeScore(candidate, amount) {
       scores[candidate] += amount;
-     
+      
       // Impede que o número de votos fique negativo
       if (scores[candidate] < 0) {
         scores[candidate] = 0;
