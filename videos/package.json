@@ -1,0 +1,22 @@
+{
+  "name": "guia-ia-wesley-videos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vídeos verticais (1080x1920) feitos com Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render Vertical out/vertical.mp4",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.539",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
