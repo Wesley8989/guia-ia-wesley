@@ -5,7 +5,8 @@
   "description": "Vídeos verticais (1080x1920) feitos com Remotion",
   "scripts": {
     "dev": "remotion studio",
-    "render": "remotion render Vertical out/vertical.mp4",
+    "render": "remotion render Biodigestor out/biodigestor.mp4",
+    "render:vertical": "remotion render Vertical out/vertical.mp4",
     "upgrade": "remotion upgrade"
   },
   "dependencies": {
